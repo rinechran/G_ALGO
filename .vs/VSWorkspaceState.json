@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\chapter1",
-    "\\chapter1\\Problem01"
+    "\\chapter1\\Problem01",
+    "\\Libraries"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\.gitmodules",
   "PreviewInSolutionExplorer": false
 }
