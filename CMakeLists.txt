@@ -3,8 +3,13 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("KPU_ALGO")
+project (KPU_ALGO)
 
-add_subdirectory(chapter1/Problem01)
 
+include_directories(libraries/googletest)
+
+add_subdirectory(src/chapter1/Problem01)
+
+
+add_subdirectory(tests)
 

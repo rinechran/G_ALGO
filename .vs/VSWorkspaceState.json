@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\chapter1",
-    "\\chapter1\\Problem01",
-    "\\Libraries"
+    "\\src",
+    "\\src\\chapter1",
+    "\\src\\chapter1\\Problem01",
+    "\\tests"
   ],
-  "SelectedNode": "\\.gitmodules",
+  "SelectedNode": "\\Dockerfile",
   "PreviewInSolutionExplorer": false
 }
