@@ -10,6 +10,6 @@ COPY . /app
 WORKDIR /app
 
 RUN mkdir build 
-RUN cd build
+WORKDIR /app/build
 
 RUN cmake .. && make
