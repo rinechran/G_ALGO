@@ -10,6 +10,3 @@ include_directories(libraries/googletest)
 
 add_subdirectory(src/chapter1/Problem01)
 
-
-add_subdirectory(tests)
-
