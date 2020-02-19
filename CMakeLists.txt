@@ -9,6 +9,6 @@ project (KPU_ALGO)
 include_directories(libraries/googletest)
 
 
-foreach(NUM RANGE 1 7)
+foreach(NUM RANGE 1 9)
 	add_subdirectory(src/chapter1/problem${NUM})
 endforeach()
