@@ -9,4 +9,7 @@ compile_commands.json
 CTestTestfile.cmake
 
 
+
+*.vs
+
 /out
