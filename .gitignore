@@ -12,4 +12,5 @@ CTestTestfile.cmake
 
 *.vs
 
-out/
+/out
+/build

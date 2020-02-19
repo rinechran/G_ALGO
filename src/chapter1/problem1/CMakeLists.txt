@@ -3,12 +3,5 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project (KPU_ALGO)
 
-
-include_directories(libraries/googletest)
-
-
-foreach(num RANGE 1 3)
-	add_subdirectory(src/chapter1/Problem${num})
-endforeach()
+add_executable(problem1 main.cpp)
