@@ -10,5 +10,5 @@ include_directories(libraries/googletest)
 
 
 foreach(NUM RANGE 1 3)
-	add_subdirectory(src/chapter1/problem${num})
+	add_subdirectory(src/chapter1/problem${NUM})
 endforeach()
