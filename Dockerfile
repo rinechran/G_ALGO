@@ -12,5 +12,4 @@ WORKDIR /app
 RUN ls -al
 RUN mkdir build && cd build
 
-RUN cmake .. && \
-	make 
+RUN cmake .. && make
