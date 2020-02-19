@@ -9,9 +9,7 @@ COPY . /app
 
 WORKDIR /app
 
-RUN ls -al
-RUN mkdir build && cd build
+RUN mkdir build 
+RUN cd build
 
-RUN ls -al
-RUN pwd
 RUN cmake .. && make
