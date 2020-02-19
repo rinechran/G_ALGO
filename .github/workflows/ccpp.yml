@@ -5,10 +5,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
+    - name: mkdir build folder
+      run: mkdir build && cd build
     - name: cmake
-      run: cmake
+      run: cmake ..
     - name: make
       run: make
     - name: make check
