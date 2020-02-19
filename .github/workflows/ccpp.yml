@@ -1,15 +1,14 @@
-name: C/C++ CI
+name: KPU_ALGO
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     
     steps:
-    - name: configure
-      run: ./configure
+    - name: cmake
+      run: cmake
     - name: make
       run: make
     - name: make check
