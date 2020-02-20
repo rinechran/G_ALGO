@@ -1,1 +1,8 @@
-﻿
+﻿set(BINARY ${CMAKE_PROJECT_NAME}_test)
+
+file(GLOB_RECURSE LIST_DIRECTORIES  *.h *.cpp)
+
+
+add_executable(${BINARY} ${LIST_DIRECTORIES})
+
+target_link_libraries(${BINARY} PRIVATE  gtest)

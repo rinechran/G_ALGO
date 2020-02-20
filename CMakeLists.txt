@@ -12,3 +12,4 @@ foreach(NUM RANGE 1 9)
 endforeach()
 
 add_subdirectory(libraries/googletest)
+add_subdirectory(tests)
