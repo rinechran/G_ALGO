@@ -7,6 +7,7 @@ trigger:
 
 resources:
 - repo: self
+  submodules: true
 
 variables:
   tag: '$(Build.BuildId)'
@@ -15,8 +16,6 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:  
-  install:
-  - git submodule update --init
   - job: Build
     displayName: Build
     pool:
