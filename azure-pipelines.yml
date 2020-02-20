@@ -7,7 +7,6 @@ trigger:
 
 resources:
 - repo: self
-  submodules: true
 
 variables:
   tag: '$(Build.BuildId)'
@@ -21,6 +20,8 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    - checkout: self
+      submodules: true
     - task: Docker@2
       displayName: Build an image
       inputs:
