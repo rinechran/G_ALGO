@@ -6,9 +6,9 @@ cmake_minimum_required (VERSION 3.8)
 project (KPU_ALGO)
 
 
-include_directories(libraries/googletest)
-
 
 foreach(NUM RANGE 1 9)
 	add_subdirectory(src/chapter1/problem${NUM})
 endforeach()
+
+add_subdirectory(libraries/googletest)
