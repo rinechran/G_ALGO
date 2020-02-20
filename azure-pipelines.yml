@@ -15,6 +15,8 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:  
+  install:
+  - git submodule update --init
   - job: Build
     displayName: Build
     pool:
