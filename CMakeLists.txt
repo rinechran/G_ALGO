@@ -7,7 +7,7 @@ project (KPU_ALGO)
 
 
 
-foreach(NUM RANGE 1 9)
+foreach(NUM RANGE 1 11)
 	add_subdirectory(src/chapter1/problem${NUM})
 endforeach()
 

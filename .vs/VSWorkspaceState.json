@@ -1,14 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\libraries",
     "\\src",
     "\\src\\chapter1",
-    "\\src\\chapter1\\problem10",
-    "\\src\\chapter1\\problem5",
-    "\\src\\chapter1\\problem6",
-    "\\src\\chapter1\\problem7",
-    "\\src\\chapter1\\problem8",
-    "\\src\\chapter1\\problem9",
+    "\\src\\chapter1\\problem1",
     "\\tests"
   ],
   "SelectedNode": "\\CMakeLists.txt",

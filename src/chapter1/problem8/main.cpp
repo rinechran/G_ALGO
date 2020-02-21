@@ -38,7 +38,7 @@ int main()
 	char buff[11];
 	string* school;
 
-	scanf("%d", &n);
+	std::cin >> n;
 	school = new string[n];
 
 	for (int i = 0; i < n; i++)

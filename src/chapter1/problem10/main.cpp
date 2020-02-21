@@ -1,53 +1,56 @@
-#include<stdio.h>
-#include<string>
+#include<cstdio>
 #include<iostream>
-
+#include <algorithm>
 using namespace std;
 
-/**
-* 배열에서 소속이 "AJOU"인 첫 원소와 마지막 원소를 출력하는 함수
-* @param school 각 사람들의 소속학교 정보 배열
-* @param n      사람들의 수
-*/
-void printIndexes(string school[], int n)
+
+
+int getMinIndexInRange(int data[], int n, int begin, int end)
 {
-	int first = -1; //존재하지 않으면 -1
-	int last = -1;  //존재하지 않으면 -1
+	int minIndex = begin;
+	for (int i = begin; i < end; ++i) {
 
-	for (int i = 0; i < n; ++i) {
-		if (school[i] != "AJOU") {
-			
+		if (data[minIndex] > data[i]) {
+			minIndex = i;
 		}
-		else if (first == -1) {
-			first = i;
-			last = i;
-		}
-		else {
-			last = i;
-		}
-		
 	}
+	return minIndex;
+}
 
+void selectionSort(int data[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		int minIndex = getMinIndexInRange(data, n, i, n);
+		std::swap(data[minIndex], data[i]);
 
-	printf("%d %d\n", first+1, last+1);
+	}
 }
 
 int main()
 {
 	int n;
-	char buff[11];
-	string* school;
+	int* data;
 
-	scanf("%d", &n);
-	school = new string[n];
+	std::cin >> n;
+	data = new int[n];
 
 	for (int i = 0; i < n; i++)
 	{
-		std::cin >> school[i];
+		std::cin >> data[i];
 	}
 
-	printIndexes(school, n);
+	selectionSort(data, n);
 
-	delete[] school;
+	for (int i = 0; i < n; i++)
+	{
+		if (i > 0)
+		{
+			printf(" ");
+		}
+		printf("%d", data[i]);
+	}
+
+	delete[] data;
 	return 0;
 }
