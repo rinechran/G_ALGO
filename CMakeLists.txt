@@ -10,5 +10,7 @@ project (KPU_ALGO)
 foreach(NUM RANGE 1 11)
 	add_subdirectory(src/chapter1/problem${NUM})
 endforeach()
-
+foreach(NUM RANGE 1 4)
+	add_subdirectory(src/chapter2/problem${NUM})
+endforeach()
 add_subdirectory(libraries/googletest)
