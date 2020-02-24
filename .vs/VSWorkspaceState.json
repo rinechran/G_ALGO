@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\libraries",
     "\\src",
     "\\src\\chapter1",
-    "\\src\\chapter1\\problem1",
-    "\\src\\chapter1\\problem10",
-    "\\src\\chapter1\\problem11",
-    "\\src\\chapter1\\problem8",
-    "\\src\\chapter1\\problem9",
+    "\\src\\chapter2",
+    "\\src\\chapter2\\problem1",
+    "\\src\\chapter2\\problem2",
+    "\\src\\chapter2\\problem3",
+    "\\src\\chapter2\\problem4",
+    "\\src\\chapter2\\problem5",
     "\\tests"
   ],
-  "SelectedNode": "\\src\\chapter1\\problem11\\CMakeLists.txt",
+  "SelectedNode": "\\src\\chapter2\\problem1\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
