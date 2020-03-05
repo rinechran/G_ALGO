@@ -3,7 +3,6 @@
 
 using namespace std;
 
-const int MAX_SEAT_NUMBER = 1000;
 const int MAX_COLOR_NUMBER = 100;
 
 //좌석들을 한 번 색칠하는 이벤트에 대한 정보
@@ -30,7 +29,9 @@ public:
 * @param table  table[x] := data배열에서 x가 등장한 횟수
 */
 void fillFrequencyTable(int data[], int n, int table[]) {
-
+	for (int i = 0; i < n; ++i) {
+		table[data[i]]++;
+	}
 }
 
 /**
@@ -42,15 +43,17 @@ void fillFrequencyTable(int data[], int n, int table[]) {
 void solve(int n, int m, const Painting* paintings)
 {
 	int* seats = new int[n];
-	int table[MAX_SEAT_NUMBER] = { 0, };
+	int table[MAX_COLOR_NUMBER] = { 0, };
 	for (int i = 0; i < n; i++)
 	{
 		seats[i] = 0;
 	}
 
 	for (int i = 0; i < m; ++i) {
-		for (int j = paintings[i].left; j < paintings[i].right; ++j) {
-			seats[j] = paintings[i].color;
+		const Painting& p = paintings[i];
+
+		for (int j = p.left; j <= p.right; ++j) {
+			seats[j] = p.color;
 		}
 	}
 
@@ -60,7 +63,15 @@ void solve(int n, int m, const Painting* paintings)
 	int minColor = seats[0]; //가장 적게 등장한 색상
 	int maxColor = seats[0]; //가장 많이 등장한 색상
 
-	for (int i = 0; i < MAX_SEAT_NUMBER; ++i) {
+	for (int i = 0; i < MAX_COLOR_NUMBER; ++i) {
+		if (table[i] == 0)
+			continue;
+		if (table[minColor] > table[i]) {
+			minColor = i;
+		}
+		if (table[maxColor] < table[i]) {
+			maxColor = i;
+		}
 	}
 
 	printf("%d\n", maxColor);
