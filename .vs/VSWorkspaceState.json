@@ -3,12 +3,7 @@
     "",
     "\\src",
     "\\src\\chapter2",
-    "\\src\\chapter2\\problem4",
-    "\\src\\chapter2\\problem5",
-    "\\src\\chapter2\\problem6",
-    "\\src\\chapter2\\problem7",
-    "\\src\\chapter2\\problem8",
-    "\\src\\chapter2\\problem9",
+    "\\src\\chapter2\\problem10",
     "\\tests"
   ],
   "SelectedNode": "\\CMakeLists.txt",
