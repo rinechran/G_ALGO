@@ -1,6 +1,6 @@
 # G_ALGO
 
-[![Build Status](https://dev.azure.com/kudwafter/rinechran/_apis/build/status/rinechran.KPU_ALGO?branchName=master)](https://dev.azure.com/kudwafter/rinechran/_build/latest?definitionId=3&branchName=master)
+[![Build Status](https://dev.azure.com/kudwafter/rinechran/_apis/build/status/rinechran.G_ALGO?branchName=master)](https://dev.azure.com/kudwafter/rinechran/_build/latest?definitionId=3&branchName=master)
 
 
 KPU algorithm group
