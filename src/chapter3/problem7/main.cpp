@@ -1,81 +1,83 @@
-#include <cstdio>
-#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <vector>
+#include <queue>
 using namespace std;
 
-class Range {
+class FrequencyTable {
 public:
-	int index;
-	int left;
-	int right;
-	long long totalPoint;
-	Range(int index, int left, int right) {
-		this->index = index;
-		this->left = left;
-		this->right = right;
-		this->totalPoint = 0;
+	const int MAX_SIZE = 1000000;
+
+	int uniqueElements; //현재 중복이 존재하지 않는 unique한 생일의 수
+	vector<int> frequency; //frequency[b] := 생일이 b인 정보의 수
+
+	FrequencyTable() {
+		this->uniqueElements = 0;
+		this->frequency = vector<int>(MAX_SIZE, 0);
 	}
 
+	/**
+	* 새로운 생일을 등록하고 빈도수를 갱신한다.
+	* @param birthDate
+	*/
+	void addBirthDate(int birthDate) {
 
-	long long getPoint(std::vector<long long>& table) {
-		return totalPoint = table[right] - table[left - 1];
+		if (this->frequency[birthDate] == 0) {
+			this->uniqueElements++;
+		}
+		this->frequency[birthDate]++;
+	}
+
+	/**
+	* 기존의 생일을 제거하고 빈도수를 갱신한다.
+	* @param birthDate
+	*/
+	void removeBirthDate(int birthDate) {
+		this->frequency[birthDate]--;
+
+		if (this->frequency[birthDate] == 0) {
+			this->uniqueElements--;
+		}
 	}
 };
 
-/**
-*
-* @param n   카드의 수
-* @param m   앨범을 구매한 팬의 수
-* @param cards   각 카드에 적힌 숫자의 리스트 (cards[1] ~ card[n])
-* @param ranges  각 팬이 선택한 범위의 리스트 (ranges[0] ~ ranges[m-1])
-* @return        총 점수의 합이 가장 큰 범위 객체
-*/
-Range getBestRange(int n, int m, const vector<int>& cards, vector<Range>& ranges) {
-	std::vector<long long> TABLE(cards.size() + 1);
-	Range answer = ranges[0];
+int getUniqueRangeNumber(const vector<int>& birthDate, int n, int k) {
 
-	TABLE[1] = cards[1];
+	int answer = 0;
 
-	for (int i = 2; i < cards.size(); ++i) {
-		TABLE[i] = TABLE[i - 1] + cards[i];
+	FrequencyTable table = FrequencyTable();
+	for (int i = 0; i < k - 1; i++) {
+		table.addBirthDate(birthDate[i]);
 	}
-	long long max = 0;
-	for (auto& i : ranges) {
-		long long tmp = i.getPoint(TABLE);
-		if (max < tmp) {
-			answer = i;
-			max = tmp;
+
+	for (int i = 0; i + k - 1 < n; i++) {
+
+		int left = i;
+		int right = i + k - 1;
+
+		table.addBirthDate(birthDate[right]);
+
+		if (left > 0) {
+			table.removeBirthDate(birthDate[left - 1]);
+		}
+
+		if (table.uniqueElements == k) {
+
+			answer += 1;
 		}
 	}
-
-
 
 	return answer;
 }
 
 int main() {
-	int n, m;
-	std::cin >> n >> m;
-	vector<int> cards(n + 1);
-	vector<Range> ranges;
-
-	// 각 카드의 정보를 입력받는다.
-	for (int i = 1; i <= n; ++i) {
-		std::cin >> cards[i];
+	int n, k;
+	std::cin >> n >> k;
+	vector<int> birthDate(n);
+	for (int i = 0; i < n; ++i) {
+		std::cin >> birthDate[i];
 	}
 
-	// 팬들의 정보를 입력받는다.
-	for (int i = 1; i <= m; ++i) {
-		int l, r;
-		std::cin >> l >> r;
-		ranges.push_back(Range(i, l, r));
-	}
+	int answer = getUniqueRangeNumber(birthDate, n, k);
 
-	// 범위의 합이 가장 큰 범위를 계산한다.
-	Range answer = getBestRange(n, m, cards, ranges);
-
-	printf("%d %lld\n", answer.index, answer.totalPoint);
-
-	return 0;
+	printf("%d\n", answer);
 }
