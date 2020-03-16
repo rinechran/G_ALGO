@@ -10,7 +10,7 @@ public:
 	vector<bool> isPrime; // 각 숫자별 소수 여부
 	Sieve(int maximumValue) {
 		this->maximumValue = maximumValue;
-		this->isPrime.assign(maximumValue + 1, false);
+		this->isPrime.assign(maximumValue + 1, true);
 		this->fillSieve();
 	}
 
@@ -23,10 +23,38 @@ public:
 		return this->isPrime[num];
 	}
 
+	bool isPrimeSolve(int n) {
+		if (n <= 1) return false;
+
+		if (n == 2) return true;
+		if (n % 2 == 0) return false;
+
+		for (int i = 3; i * i <= n; i++) {
+			if (n % i == 0)
+				return false;
+
+		}
+		return true;
+	}
+
 	/**
 	 * isPrime 배열의 값을 채우는 함수
 	 */
 	void fillSieve() {
+
+		this->isPrime[1] = false;
+		for (long long i = 1; i <= maximumValue; ++i) {
+
+			if (this->isPrime[i] == false) {
+				continue;
+			}
+
+			if (this->isPrimeSolve(i)) {
+				for (long long j = 2; j * i <= maximumValue; j++) {
+					this->isPrime[i * j] = false;
+				}
+			}
+		}
 
 	}
 };
