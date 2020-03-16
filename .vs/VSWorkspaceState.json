@@ -3,9 +3,12 @@
     "",
     "\\src",
     "\\src\\chapter2",
-    "\\src\\chapter2\\problem10",
-    "\\tests"
+    "\\src\\chapter4",
+    "\\src\\chapter4\\problem1",
+    "\\src\\chapter4\\problem2",
+    "\\src\\chapter4\\problem3",
+    "\\src\\chapter4\\problem4"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\src\\chapter4\\problem3\\main.cpp",
   "PreviewInSolutionExplorer": false
 }

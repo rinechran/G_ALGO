@@ -1,63 +1,77 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-const int MAX_ROW = 9;
-const int MAX_COL = 9;
+/**
+ * a와 b의 최대 공약수를 계산하는 함수
+ *
+ * @param a
+ * @param b
+ * @return
+ */
+long long getGCD(long long a, long long b) {
+    while (b != 0) {
+        int temp = a % b;
+        a = b;
+        b = temp;
+    }
+    return a;
+}
+
+/**
+ * a와 b의 최소 공배수를 계산하는 함수
+ *
+ * @param a
+ * @param b
+ * @return
+ */
+long long getLCM(long long a, long long b) {
+    return a * b / getGCD(a, b);
+}
 
 
-class SudokuBoard {
-public:
-	// 칸의 번호로 행의 번호를 계산하는 메소드
-	int getRowByIndex(int index) {
-		int result = --index / MAX_ROW;
-		return ++result;
+/**
+ * 여러 숫자에 대한 공통 최소 공배수를 계산하는 함수
+ *
+ * @param numbers
+ * @return
+ */
+long long getLCMs(vector<long long>& numbers) {
 
-	}
+    long long lcm = getLCM(numbers[0], numbers[1]);
 
-	// 칸의 번호로 열의 번호를 계산하는 메소드
-	int getColByIndex(int index) {
-		int result = --index % MAX_ROW;
-		return ++result;
-	}
+    for (int i = 2; i < numbers.size(); ++i) {
+        lcm = getLCM(lcm, numbers[i]);
+    }
+    return lcm;
+}
 
-	// 칸의 번호로 그룹 번호를 계산하는 메소드
-	int getGroupByIndex(int index) {
-		int r = getRowByIndex(index);
-		int c = getColByIndex(index);
-		return getGroupByPosition(r, c);
-	}
+/**
+ * 모든 수열이 동시에 최초의 원소를 만나는 최소 주기를 계산하는 함수
+ *
+ * @param n     수열의 수
+ * @param sizes 각 순환 수열의 길이(주기)
+ * @return
+ */
+long long getGlobalPeriod(vector<long long>& sizes) {
 
-	// 칸의 위치 (행, 열)로 그룹 번호를 계산하는 메소드
-	int getGroupByPosition(int row, int column) {
-		int result = 1;
-		result += (row - 1) / 3 * 3;
-		result += (--column / 3);
-		return result;
+    long long allLcm = getLCMs(sizes);
 
-	}
+    return allLcm;
 
-};
-
-
-void process(int caseIndex) {
-	int index;
-	std::cin >> index;
-	SudokuBoard board = SudokuBoard();
-
-	// 칸의 번호로 행, 열, 그룹 번호를 계산한다
-	int row = board.getRowByIndex(index);
-	int col = board.getColByIndex(index);
-	int group = board.getGroupByIndex(index);
-
-	printf("Case #%d:\n", caseIndex);
-	printf("%d %d %d\n", row, col, group);
 }
 
 int main() {
-	int caseSize;
-	std::cin >> caseSize;
-	for (int caseIndex = 1; caseIndex <= caseSize; ++caseIndex) {
-		process(caseIndex);
-	}
+    int n;
+    std::cin >> n;
+
+    vector<long long> sizes(n);
+
+    for (int i = 0; i < n; i += 1) {
+        std::cin >> sizes[i];
+    }
+
+    long long answer = 1 + getGlobalPeriod(sizes);
+    printf("%lld\n", answer);
 }
