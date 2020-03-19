@@ -53,16 +53,13 @@ void process(int caseIndex, const Sieve& sieve) {
 	std::cin >> x;
 
 	int a = -1, b = -1;
-	// x=a+b
-	// a=-x+b
-	for (int i = x - 1; i >= 2; --i) {
-		if (sieve.isPrimeNumber(i) == true) {
-			int y = x - i;
-			if (sieve.isPrimeNumber(y) == true) {
-				a = y;
-				b = i;
-				break;
-			}
+
+	for (int p = 3; p <= x / 2; p += 2) {
+		int q = x - p; 
+		if (sieve.isPrimeNumber(p) && sieve.isPrimeNumber(q)) {  
+			a = p;
+			b = q;
+			break;
 		}
 	}
 	printf("Case #%d:\n", caseIndex);
