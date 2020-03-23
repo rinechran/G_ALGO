@@ -7,8 +7,10 @@
     "\\src\\chapter4\\problem1",
     "\\src\\chapter4\\problem2",
     "\\src\\chapter4\\problem3",
-    "\\src\\chapter4\\problem4"
+    "\\src\\chapter4\\problem4",
+    "\\src\\chapter5",
+    "\\src\\chapter5\\problem2"
   ],
-  "SelectedNode": "\\src\\chapter4\\problem3\\main.cpp",
+  "SelectedNode": "\\src\\chapter5\\problem2\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
