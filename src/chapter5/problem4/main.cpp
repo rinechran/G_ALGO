@@ -21,7 +21,7 @@ public:
 		this->buildings = new int* [rows];
 		for (int r = 0; r < rows; r += 1) {
 			this->buildings[r] = new int[columns];
-			fill(buildings[r], buildings[r] + columns, 0);
+			std::fill(buildings[r], buildings[r] + columns, 0);
 		}
 	}
 
@@ -56,7 +56,8 @@ int dc[8] = { 0, 1, 1, 1, 0 , -1 , -1 , -1 }; //dc[d] := //  ---- 열방향 거리
 
 void test_case(int caseIndex) {
 	int N, K;
-	std::cin >> N >> K;
+	std::cin >> N;
+
 	GameMap gameMap(N, N);
 
 	for (int r = 0; r < N; r += 1) {
@@ -68,34 +69,32 @@ void test_case(int caseIndex) {
 	}
 
 	int answer = 0;
+	for (int selRow = 0; selRow < N; selRow++) {
+		for (int selCol = 0; selCol < N; selCol++) {
 
-	int x, y;
+			int tempResult = 0;
 
-	for (int index = 0; index < K; ++index) {
-		int selRow;
-		int selCol;
-		int tempResult = 0;
-		std::cin >> selRow >> selCol;
-		selRow -= 1; selCol -= 1;
-
-		if (gameMap.getBuildingsAt(selRow, selCol)) {
-			tempResult++;
-		}
-		for (int i = 0; i < 8; ++i) {
-			int tempRow = selRow + dr[i];
-			int tempCol = selCol + dc[i];
-			while (gameMap.isInside(tempRow, tempCol) != false) {
-
-				if (gameMap.getBuildingsAt(tempRow, tempCol)) {
-					tempResult++;
-				}
-				tempRow = tempRow + dr[i];
-				tempCol = tempCol + dc[i];
+			if (gameMap.getBuildingsAt(selRow, selCol)) {
+				tempResult++;
 			}
-		}
-		answer = std::max(answer, tempResult);
+			for (int i = 0; i < 8; ++i) {
+				int tempRow = selRow + dr[i];
+				int tempCol = selCol + dc[i];
+				while (gameMap.isInside(tempRow, tempCol) != false) {
 
+					if (gameMap.getBuildingsAt(tempRow, tempCol)) {
+						tempResult++;
+					}
+					tempRow = tempRow + dr[i];
+					tempCol = tempCol + dc[i];
+
+				}
+			}
+			answer = std::max(answer, tempResult);
+
+		}
 	}
+
 
 
 	printf("%d\n", answer);
@@ -104,6 +103,7 @@ void test_case(int caseIndex) {
 int main() {
 	int caseSize;
 	std::cin >> caseSize;
+
 	for (int caseIndex = 0; caseIndex < caseSize; caseIndex += 1) {
 		test_case(caseIndex);
 	}
