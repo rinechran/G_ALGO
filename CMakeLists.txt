@@ -23,3 +23,7 @@ endforeach()
 foreach(NUM RANGE 1 4)
 	add_subdirectory(src/chapter5/problem${NUM})
 endforeach()
+
+foreach(NUM RANGE 1 1)
+	add_subdirectory(src/chapter6/problem${NUM})
+endforeach()
