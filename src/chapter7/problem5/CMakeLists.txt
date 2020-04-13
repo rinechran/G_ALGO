@@ -4,4 +4,4 @@
 cmake_minimum_required (VERSION 3.8)
 
 
-add_executable(c7problem4 main.cpp)
+add_executable(c7problem5 main.cpp)
