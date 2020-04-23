@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\chapter4",
-    "\\src\\chapter4\\problem4",
-    "\\src\\chapter5",
-    "\\src\\chapter5\\problem2",
-    "\\src\\chapter5\\problem3",
-    "\\src\\chapter5\\problem4",
     "\\src\\chapter5\\problem5",
-    "\\src\\chapter5\\problem8"
+    "\\src\\chapter5\\problem8",
+    "\\src\\chapter6\\problem10",
+    "\\src\\chapter6\\problem7",
+    "\\src\\chapter6\\problem8",
+    "\\src\\chapter6\\problem9",
+    "\\src\\chapter7",
+    "\\src\\chapter7\\problem1"
   ],
-  "SelectedNode": "\\src\\chapter5\\problem8\\main.cpp",
+  "SelectedNode": "\\src\\chapter7\\problem1\\main.cpp",
   "PreviewInSolutionExplorer": false
 }
