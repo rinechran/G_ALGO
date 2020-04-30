@@ -44,7 +44,7 @@ vector<int> getDfsOrder(int N, const vector<vector<bool> >& adj) {
 		visitedNodes.push_back(state.nodeIndex);
 
 
-		for (int i = N; i > 0; --i) {
+		for (int i = N; i >= 0; --i) {
 			if (visited[i] == false && adj[state.nodeIndex][i] == true) {
 				dfsStack.push(State(i, state.nodeIndex));
 			}
