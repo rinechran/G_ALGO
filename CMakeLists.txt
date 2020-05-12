@@ -36,6 +36,6 @@ foreach(NUM RANGE 1 6)
 	add_subdirectory(src/chapter8/problem${NUM})
 endforeach()
 
-foreach(NUM RANGE 1 2)
+foreach(NUM RANGE 1 3)
 	add_subdirectory(src/chapter9/problem${NUM})
 endforeach()
